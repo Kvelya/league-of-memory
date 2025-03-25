@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div id="popup">
+        <img src="popup.png">
+        <button class="buttons" id="play-again" onclick="PlayAgain()">Play again</button>
+    </div>
+
+    <div id="guibuttons">
+        <button class="buttons" onclick="coverCards()">Cover</button>
+        <button class="buttons" onclick="shuffleCards()">Shuffle</button>
+    </div>
+    <div class="cards"></div>
+    <script>
+        img_id = 1;
+        let cardsContainer = document.querySelector(".cards");
+        for (let card_id = 1; card_id <= 24; card_id++) {
+            let cardDiv = document.createElement("div");
+            if (card_id % 2 != 0) {
+                    img_id += 1;}
+            cardDiv.className = "card";
+            cardDiv.id = `a${card_id}`;
+            cardDiv.innerHTML = `<img src="kaf${img_id}.jpg">`;
+            cardsContainer.appendChild(cardDiv);
+            cardDiv.addEventListener("click", function(){Play(this)});
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
